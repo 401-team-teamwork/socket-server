@@ -83,7 +83,7 @@ typings/
 
 #intellij
 .idea
-
+.vscode
 
 ### OSX ###
 *.DS_Store
