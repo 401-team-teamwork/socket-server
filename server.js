@@ -4,7 +4,7 @@ require('dotenv').config();
 
 // 3rd Party Resources
 const socketIoServer = require('socket.io')(process.env.PORT);
-const Game = require('./gameModel');
+const Game = require('./src/gameModel');
 
 //Sockets
 
