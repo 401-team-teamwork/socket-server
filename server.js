@@ -16,19 +16,23 @@ socketIoServer.on('connection', socket => {
   console.log('Connected', socket.id);
 
   socket.on('new-player', player => {
+    player.socket_id = socket.id;
     if (user1 !== null && user2 !== null) {
       socket.close();
     } else if (user1 === null) {
-      user1 = player.username;
+      user1 = player;
     } else {
-      user2 = player.username;
+      user2 = player;
     }
 
-    socket.emit('log', `Welcome ${player.username}`);
+    socket.emit('log', player);
 
     if (user1 && user2) {
       //start the game
       game = new Game();
+      // game.player1 = user1;
+      // game.player2 = user2;
+
       socketIoServer.local.emit('new-game', game);
     }
 
@@ -40,7 +44,7 @@ socketIoServer.on('connection', socket => {
       }
       if (game.player1 !== null && game.player2 !== null) {
         game.winner = game.calculateWinner(game.player1, game.player2)
-        socketIoServer.local.emit('end-game', `\n\nAnd the winner is: ${game.winner.name}`);
+        socketIoServer.local.emit('end-game', `\n\nAnd the winner is: ${game.winner}`);
         user1 = null;
         user2 = null;
       }
