@@ -12,7 +12,7 @@
     "test-watch": "jest --watchAll --verbose",
     "jsdoc": "jsdoc -c ./docs/config/jsdoc.config.json",
     "lint": "eslint \"**/*.js\"",
-    "start": "node index.js",
+    "start": "node server.js",
     "startDB": "mkdir -p ./.db && mongod --dbpath ./.db"
   },
   "jest": {
