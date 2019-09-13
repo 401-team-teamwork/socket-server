@@ -1,5 +1,3 @@
-'use strict';
-
 const SG = require('sentence-generator');
 const sG = SG('./words.txt');
 
@@ -10,7 +8,6 @@ class Game {
     this.player1 = null;
     this.player2 = null;
     this.winner = null;
-    this.player3 = {name: 'Tie'};
   }
 
   generateString(){
@@ -23,8 +20,9 @@ class Game {
     } else if (player2.wordsPerMinute > player1.wordsPerMinute){
       return player2;
     } else {
-      return this.player3;
+      return 'Tie';
     }
+
   }
 
 }
