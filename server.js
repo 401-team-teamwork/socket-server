@@ -52,5 +52,5 @@ socketIoServer.on('connection', socket => {
 });
 
 
-console.log(`Server is up on ${process.env.PORT}`)
+console.log(`Server is up on ${process.env.PORT}`);
 
