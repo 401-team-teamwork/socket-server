@@ -42,7 +42,7 @@ socketIoServer.on('connection', socket => {
       }
       if (game.player1 !== null && game.player2 !== null) {
         game.winner = game.calculateWinner(game.player1, game.player2);
-        socketIoServer.local.emit('end-game', `\n\nAnd the winner is: ${game.winner.name}`);
+        chalk.bold(socketIoServer.local.emit('end-game', `\n\nAnd the winner is: ${game.winner.name}`));
         user1 = null;
         user2 = null;
       }
