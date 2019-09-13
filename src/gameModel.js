@@ -20,7 +20,7 @@ class Game {
   calculateWinner(player1, player2){
     if((player1.wordsPerMinute - player1.incorrectEntries) > (player2.wordsPerMinute - player2.incorrectEntries)){
       return player1;
-    } else if (player2.wordsPerMinute > player1.wordsPerMinute){
+    } else if ((player2.wordsPerMinute - player2.incorrectEntries) > (player1.wordsPerMinute - player1.incorrectEntries)){
       return player2;
     } else {
       return this.player3;
