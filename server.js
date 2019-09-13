@@ -30,8 +30,6 @@ socketIoServer.on('connection', socket => {
     if (user1 && user2) {
       //start the game
       game = new Game();
-      // game.player1 = user1;
-      // game.player2 = user2;
 
       socketIoServer.local.emit('new-game', game);
     }
@@ -43,8 +41,8 @@ socketIoServer.on('connection', socket => {
         game.player2 = player;
       }
       if (game.player1 !== null && game.player2 !== null) {
-        game.winner = game.calculateWinner(game.player1, game.player2)
-        socketIoServer.local.emit('end-game', `\n\nAnd the winner is: ${game.winner}`);
+        game.winner = game.calculateWinner(game.player1, game.player2);
+        socketIoServer.local.emit('end-game', `\n\nAnd the winner is: ${game.winner.name}`);
         user1 = null;
         user2 = null;
       }
